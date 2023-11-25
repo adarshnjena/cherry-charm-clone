@@ -15,7 +15,7 @@ const Interface = () => {
   const setCoffeti = useGame((state) => state.setCoffeti);
   const coffeti = useGame((state) => state.coffeti);
   const won = useGame((state) => state.won);
-  const setWon = useGame((state) => state.setWon);
+  // const setWon = useGame((state) => state.setWon);
   const modal = useGame((state) => state.modal);
   const spins = useGame((state) => state.spins);
   const coffetiRef = useRef<any>(null);
@@ -80,7 +80,7 @@ const Interface = () => {
           loop={false}
           onComplete={() => {
             coffeti.current.goToAndStop(0, false);
-            setWon(false);
+            // setWon(false);
           }}
           lottieRef={coffetiRef}
         />

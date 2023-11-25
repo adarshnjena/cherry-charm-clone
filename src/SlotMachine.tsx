@@ -49,7 +49,7 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
   const spins = useGame((state) => state.spins);
   const setWon = useGame((state) => state.setWon);
   const coffeti = useGame((state) => state.coffeti);
-
+  const won = useGame((state) => state.won);
   // const fetchSegmentValues = async () => {
   //   try {
   //     const requestOptions = {
@@ -298,7 +298,9 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
           setTextY(-14);
         }}
       >
-        {phase === "idle" ? `${spins > 4 ? "No Spins" : "SPIN"}` : "SPINNING"}
+        {phase === "idle"
+          ? `${spins > 4 ? "No Spins" : `${won ? "WON !!" : "SPIN"}`}`
+          : "SPINNING"}
       </Text>
     </>
   );
