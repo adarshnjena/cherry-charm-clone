@@ -11,7 +11,7 @@ import * as THREE from "three";
 import useGame from "./stores/store";
 import devLog from "./utils/functions/devLog";
 import segmentToFruit from "./utils/functions/segmentToFruit";
-import endgame from "./utils/functions/endgame";
+// import endgame from "./utils/functions/endgame";
 import { WHEEL_SEGMENT } from "./utils/constants";
 import Reel from "./Reel";
 import Button from "./Button";
@@ -44,7 +44,7 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
   const start = useGame((state) => state.start);
   const end = useGame((state) => state.end);
   const addSpin = useGame((state) => state.addSpin);
-  const coins = useGame((state) => state.coins);
+  // const coins = useGame((state) => state.coins);
   const updateCoins = useGame((state) => state.updateCoins);
   const spins = useGame((state) => state.spins);
   const setWon = useGame((state) => state.setWon);
