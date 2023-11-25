@@ -82,9 +82,6 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
       console.log("WON");
       setWon(true);
       coffeti.current.goToAndPlay(0, true);
-      setTimeout(() => {
-        setWon(false);
-      }, 2000);
     }
 
     // setSparkles(true);
