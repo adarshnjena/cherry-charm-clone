@@ -20,8 +20,6 @@ const Interface = () => {
   const spins = useGame((state) => state.spins);
   const coffetiRef = useRef<any>(null);
   setCoffeti(coffetiRef);
-  const [coffetiAnimationPlay, setCoffetiAnimationPlay] = useState<any>(false);
-
   useEffect(() => {
     coffetiRef.current.stop;
   });
@@ -75,16 +73,13 @@ const Interface = () => {
       </div>
       <div>
         <Lottie
-          className={`absolute bottom-0 ${
-            won ? "z-50" : "z-0"
-          } `}
+          className={`absolute bottom-0 ${won ? "z-50" : "z-0"} `}
           animationData={coffetiFile}
           height={10}
           width={10}
           loop={false}
           onComplete={() => {
             coffeti.current.goToAndStop(0, false);
-            setCoffetiAnimationPlay(false);
           }}
           lottieRef={coffetiRef}
         />
