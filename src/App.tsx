@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import { NextUIProvider } from "@nextui-org/react";
 import Interface from "./interface/Interface";
 import Game from "./Game";
 
@@ -13,7 +14,9 @@ const App = () => {
 
   return (
     <>
-      <Interface />
+      <NextUIProvider>
+        <Interface />
+      </NextUIProvider>
       <Canvas camera={{ fov: 75, position: [0, 0, cameraPositionZ] }}>
         <Game />
       </Canvas>

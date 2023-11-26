@@ -30,7 +30,7 @@
   width: 400px;
 }
 
-.coins-section {
+.spinsLeft-section {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -40,14 +40,14 @@
   margin: 1em;
 }
 
-.coins-number {
+.spinsLeft-number {
   font-size: min(130px, 11vw);
   width: 400px;
   text-align: right;
   text-shadow: min(7px, 1vw) min(7px, 1vw) 0px #6913c5;
 }
 
-.coins-image {
+.spinsLeft-image {
   margin-top: 1vw;
   margin-left: 2vw;
   width: min(130px, 11vw);

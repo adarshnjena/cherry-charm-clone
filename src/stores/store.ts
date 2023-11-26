@@ -11,6 +11,9 @@ type State = {
   coffeti: any;
   setCoffeti: (value: any) => void;
 
+  dataModal: any;
+  setDataModal: (value: any) => void;
+
   won: boolean;
   setWon: (value: boolean) => void;
   // Endpoint
@@ -20,9 +23,9 @@ type State = {
   modal: boolean;
   setModal: (isOpen: boolean) => void;
 
-  // Coins
-  coins: number;
-  updateCoins: (amount: number) => void;
+  // spinsLeft
+  spinsLeft: number;
+  updateSpinsLeft: (amount: number) => void;
 
   // Fruits (results)
   fruit0: Fruit | "";
@@ -84,14 +87,25 @@ const useGame = create<State>((set) => ({
   },
 
   /**
-   * Coins
+   * Data model
    *
    */
-  coins: 20,
-  updateCoins: (amount: number) => {
+  dataModal: {},
+  setDataModal: (value: any) => {
     set((state) => ({
       ...state,
-      coins: state.coins + amount,
+      dataModal: value,
+    }));
+  },
+  /**
+   * spinsLeft
+   *
+   */
+  spinsLeft: 0,
+  updateSpinsLeft: (amount: number) => {
+    set((state) => ({
+      ...state,
+      spinsLeft: state.spinsLeft + amount,
     }));
   },
 

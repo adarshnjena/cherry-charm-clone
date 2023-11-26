@@ -4,13 +4,24 @@
 
 import { useRef, useEffect } from "react";
 import useGame from "../stores/store";
-import Modal from "./modal/Modal";
+import CustomModal from "./modal/Modal";
 import HelpButton from "./helpButton/HelpButton";
 import coffetiFile from "../animations/coffeti.json";
 import Lottie from "lottie-react";
 import "./style.css";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
 
 const Interface = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   // const phase = useGame((state) => state.phase);
   const setCoffeti = useGame((state) => state.setCoffeti);
   const coffeti = useGame((state) => state.coffeti);
@@ -18,6 +29,10 @@ const Interface = () => {
   // const setWon = useGame((state) => state.setWon);
   const modal = useGame((state) => state.modal);
   const spins = useGame((state) => state.spins);
+  const setDataModal = useGame((state) => state.setDataModal);
+  const spinsLeft = useGame((state) => state.spinsLeft);
+  const updateSpinsLeft = useGame((state) => state.updateSpinsLeft);
+  setDataModal(onOpen);
   const coffetiRef = useRef<any>(null);
   setCoffeti(coffetiRef);
   useEffect(() => {
@@ -38,7 +53,7 @@ const Interface = () => {
         Button
       </button> */}
       {/* Modal */}
-      {modal && <Modal />}
+      {modal && <CustomModal />}
 
       {/* Logo */}
       <a
@@ -49,10 +64,10 @@ const Interface = () => {
       </a>
 
       <div className="interface">
-        {/* Coins */}
-        <div className="coins-section">
-          <div className="coins-number mb-2">
-            {5 - spins}
+        {/* spinsLeft */}
+        <div className="spinsLeft-section">
+          <div className="spinsLeft-number mb-2">
+            {spinsLeft}
             <span className="absolute bottom-0 right-0 text-sm">
               Spins Left
             </span>
@@ -85,6 +100,53 @@ const Interface = () => {
           lottieRef={coffetiRef}
         />
       </div>
+      <>
+        <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  Modal Title
+                </ModalHeader>
+                <ModalBody>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam pulvinar risus non risus hendrerit venenatis.
+                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Nullam pulvinar risus non risus hendrerit venenatis.
+                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                  </p>
+                  <p>
+                    Magna exercitation reprehenderit magna aute tempor cupidatat
+                    consequat elit dolor adipisicing. Mollit dolor eiusmod sunt
+                    ex incididunt cillum quis. Velit duis sit officia eiusmod
+                    Lorem aliqua enim laboris do dolor eiusmod. Et mollit
+                    incididunt nisi consectetur esse laborum eiusmod pariatur
+                    proident Lorem eiusmod et. Culpa deserunt nostrud ad veniam.
+                  </p>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                  <Button
+                    color="primary"
+                    onPress={() => {
+                      updateSpinsLeft(5);
+                      onClose();
+                    }}
+                  >
+                    Action
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      </>
     </>
   );
 };

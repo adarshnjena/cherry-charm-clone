@@ -44,12 +44,14 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
   const start = useGame((state) => state.start);
   const end = useGame((state) => state.end);
   const addSpin = useGame((state) => state.addSpin);
-  // const coins = useGame((state) => state.coins);
-  const updateCoins = useGame((state) => state.updateCoins);
+  // const spinsLeft = useGame((state) => state.spinsLeft);
+  const updateSpinsLeft = useGame((state) => state.updateSpinsLeft);
   const spins = useGame((state) => state.spins);
   const setWon = useGame((state) => state.setWon);
   const coffeti = useGame((state) => state.coffeti);
   const won = useGame((state) => state.won);
+  const dataModal = useGame((state) => state.dataModal);
+  const spinsLeft = useGame((state) => state.spinsLeft);
   // const fetchSegmentValues = async () => {
   //   try {
   //     const requestOptions = {
@@ -88,7 +90,7 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
     // setTimeout(() => {
     //   setSparkles(false);
     // }, 1000);
-  }, [phase]);
+  }, [phase, fruit0, fruit1, fruit2]);
 
   const reelRefs = [
     useRef<ReelGroup>(null),
@@ -142,26 +144,26 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
     spinReel(2);
   };
 
-  // useEffect(() => {
-  //   const handleKeyDown = (event: KeyboardEvent) => {
-  //     if (event.code === "Space") {
-  //       if (phase !== "spinning") {
-  //         if (coins > 0) {
-  //           // fetchSegmentValues();
-  //           spinSlotMachine();
-  //           addSpin();
-  //           updateCoins(-1);
-  //         }
-  //       }
-  //     }
-  //   };
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.code === "Space") {
+        if (phase !== "spinning") {
+          if (spins < 5) {
+            // fetchSegmentValues();
+            spinSlotMachine();
+            addSpin();
+            updateSpinsLeft(-1);
+          }
+        }
+      }
+    };
 
-  //   document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
 
-  //   return () => {
-  //     document.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [phase]);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [phase]);
 
   useFrame(() => {
     for (let i = 0; i < reelRefs.length; i++) {
@@ -265,10 +267,14 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         rotation={[-Math.PI / 8, 0, 0]}
         onClick={() => {
           if (phase !== "spinning") {
-            if (spins < 5) {
+            if (spins < 5 && spinsLeft > 0) {
               spinSlotMachine();
               addSpin();
-              updateCoins(-1);
+              updateSpinsLeft(-1);
+            } else {
+              if (spins == 0) {
+                dataModal(true);
+              }
             }
           }
         }}
@@ -299,8 +305,12 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         }}
       >
         {phase === "idle"
-          ? `${spins > 4 ? "No Spins" : `${won ? "WON !!" : "SPIN"}`}`
-          : "SPINNING"}
+          ? `${
+              spinsLeft == 0
+                ? `${won ? "WON !!" : "Get Spins"}`
+                : `${won ? "WON !!" : "SPIN"}`
+            }`
+          : "Spinning"}
       </Text>
     </>
   );

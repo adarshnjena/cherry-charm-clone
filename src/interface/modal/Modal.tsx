@@ -5,7 +5,7 @@
 import useGame from "../../stores/store";
 import "./style.css";
 
-const Modal = () => {
+const CustomModal = () => {
   const { setModal } = useGame();
 
   return (
@@ -28,4 +28,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default CustomModal;
