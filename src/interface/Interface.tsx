@@ -2,7 +2,7 @@
 // Licensed under the GNU Affero General Public License v3.0.
 // https://www.gnu.org/licenses/gpl-3.0.html
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import useGame from "../stores/store";
 import CustomModal from "./modal/Modal";
 import HelpButton from "./helpButton/HelpButton";
@@ -33,6 +33,18 @@ const Interface = () => {
   const setDataModal = useGame((state) => state.setDataModal);
   const spinsLeft = useGame((state) => state.spinsLeft);
   const updateSpinsLeft = useGame((state) => state.updateSpinsLeft);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [validNumber, setValidNumber] = useState(true);
+
+  useEffect(() => {
+    if (phone.length === 10) {
+      setValidNumber(true);
+    } else {
+      setValidNumber(false);
+    }
+  }, [phone]);
+
   setDataModal(onOpen);
   const coffetiRef = useRef<any>(null);
   setCoffeti(coffetiRef);
@@ -120,12 +132,15 @@ const Interface = () => {
                     type="name"
                     label="Name"
                     className="max-w"
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <Input
                     isRequired
-                    type="email"
-                    label="Email"
+                    type="phone"
+                    label="Phone Number"
                     className="max-w"
+                    isInvalid={!validNumber && phone.length > 0}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </ModalBody>
                 <ModalFooter>
