@@ -26,7 +26,7 @@
 
 .spins-number {
   font-size: min(130px, 11vw);
-  text-shadow: min(7px, 1vw) min(7px, 1vw) 0px #148f5c;
+  text-shadow: min(7px, 1vw) min(7px, 1vw) 0px #0c6b43;
   width: 400px;
 }
 
@@ -44,7 +44,7 @@
   font-size: min(130px, 11vw);
   width: 400px;
   text-align: right;
-  text-shadow: min(7px, 1vw) min(7px, 1vw) 0px #148f5c;
+  text-shadow: min(7px, 1vw) min(7px, 1vw) 0px #0c6b43;
 }
 
 .spinsLeft-image {

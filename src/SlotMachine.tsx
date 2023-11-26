@@ -288,7 +288,7 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         }}
       />
       <Text
-        color="white"
+        color="black"
         anchorX="center"
         anchorY="middle"
         position={[0, textY, textZ]}

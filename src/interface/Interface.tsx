@@ -148,7 +148,7 @@ const Interface = () => {
                     Close
                   </Button>
                   <Button
-                    color="primary"
+                    style={{ backgroundColor: "#25C07F" }}
                     onPress={() => {
                       updateSpinsLeft(5);
                       onClose();
