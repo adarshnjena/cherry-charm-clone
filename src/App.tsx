@@ -7,6 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import { NextUIProvider } from "@nextui-org/react";
 import Interface from "./interface/Interface";
 import Game from "./Game";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [windowWidth] = useState(window.innerWidth);
@@ -14,6 +15,7 @@ const App = () => {
 
   return (
     <>
+      <Toaster position="top-left" />
       <NextUIProvider>
         <Interface />
       </NextUIProvider>

@@ -19,6 +19,8 @@ import {
   useDisclosure,
   Input,
 } from "@nextui-org/react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Interface = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -36,6 +38,19 @@ const Interface = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [validNumber, setValidNumber] = useState(true);
+
+  const handelSubmit = async () => {
+    const data = {
+      name,
+      phone,
+    };
+    const response = await axios.post("https://formspree.io/f/xrgwwplr", data);
+    console.log(response);
+    if (response.status === 200) {
+      updateSpinsLeft(5);
+      toast.success("Try Out Your Luck !!");
+    }
+  };
 
   useEffect(() => {
     if (phone.length === 10) {
@@ -56,6 +71,7 @@ const Interface = () => {
     <>
       {/* Help Button */}
       <HelpButton />
+
       {/* <button
         className="help-button"
         onClick={() => {
@@ -152,7 +168,7 @@ const Interface = () => {
                   <Button
                     style={{ backgroundColor: "#25C07F" }}
                     onPress={() => {
-                      updateSpinsLeft(5);
+                      handelSubmit();
                       onClose();
                     }}
                   >
