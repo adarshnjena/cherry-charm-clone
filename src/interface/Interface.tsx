@@ -132,11 +132,13 @@ const Interface = () => {
                     type="name"
                     label="Name"
                     className="max-w"
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                   <Input
                     isRequired
-                    type="phone"
+                    type="number"
+                    inputMode="numeric"
                     label="Phone Number"
                     className="max-w"
                     isInvalid={!validNumber && phone.length > 0}
