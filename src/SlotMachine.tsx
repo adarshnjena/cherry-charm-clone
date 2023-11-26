@@ -293,7 +293,7 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         anchorY="middle"
         position={[0, textY, textZ]}
         rotation={[-Math.PI / 8, 0, 0]}
-        fontSize={3}
+        fontSize={2}
         font="./fonts/nickname.otf"
         onPointerDown={() => {
           setTextZ(1.3);

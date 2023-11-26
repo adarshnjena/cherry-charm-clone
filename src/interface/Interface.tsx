@@ -154,7 +154,7 @@ const Interface = () => {
                       onClose();
                     }}
                   >
-                    Get Spins !!
+                    Spins Now !!
                   </Button>
                 </ModalFooter>
               </>
