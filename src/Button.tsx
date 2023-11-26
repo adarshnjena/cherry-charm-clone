@@ -15,7 +15,7 @@ type GLTFResult = GLTF & {
 const Button = (props: JSX.IntrinsicElements["group"]) => {
   const { nodes } = useGLTF("/models/button.glb") as GLTFResult;
 
-  const material = new THREE.MeshStandardMaterial({ color: "#3b0873" });
+  const material = new THREE.MeshStandardMaterial({ color: "#095d3a" });
 
   return (
     <group {...props} dispose={null}>
