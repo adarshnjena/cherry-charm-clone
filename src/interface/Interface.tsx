@@ -18,21 +18,29 @@ import {
   Button,
   useDisclosure,
   Input,
+  Link,
 } from "@nextui-org/react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
 const Interface = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const {
+    isOpen: isOpen2,
+    onOpen: onOpen2,
+    onOpenChange: onOpenChange2,
+  } = useDisclosure();
 
   // const phase = useGame((state) => state.phase);
   const setCoffeti = useGame((state) => state.setCoffeti);
   const coffeti = useGame((state) => state.coffeti);
-  const won = useGame((state) => state.won);
+  // const won = useGame((state) => state.won);
+  const coffetiVisible = useGame((state) => state.coffetiVisible);
   // const setWon = useGame((state) => state.setWon);
   const modal = useGame((state) => state.modal);
   const spins = useGame((state) => state.spins);
   const setDataModal = useGame((state) => state.setDataModal);
+  const setRewardModal = useGame((state) => state.setRewardModal);
   const spinsLeft = useGame((state) => state.spinsLeft);
   const updateSpinsLeft = useGame((state) => state.updateSpinsLeft);
   const [name, setName] = useState("");
@@ -61,6 +69,7 @@ const Interface = () => {
   }, [phone]);
 
   setDataModal(onOpen);
+  setRewardModal(onOpen2);
   const coffetiRef = useRef<any>(null);
   setCoffeti(coffetiRef);
   useEffect(() => {
@@ -117,7 +126,7 @@ const Interface = () => {
       </div>
       <div>
         <Lottie
-          className={`absolute bottom-0 ${won ? "z-50" : "z-0"} `}
+          className={`absolute bottom-0 ${coffetiVisible ? "z-50" : "z-0"} `}
           animationData={coffetiFile}
           height={10}
           width={10}
@@ -177,6 +186,42 @@ const Interface = () => {
                 </ModalFooter>
               </>
             )}
+          </ModalContent>
+        </Modal>
+      </>
+      <>
+        <Modal backdrop="blur" isOpen={isOpen2} onOpenChange={onOpenChange2}>
+          <ModalContent>
+            <>
+              <ModalHeader className="flex flex-col gap-1">
+                Congratulations !!
+              </ModalHeader>
+              <ModalBody>
+                <p>
+                  Congratulations, you have won a free ticket to Sunburn Goa
+                  2023 when you book with One Click Stays.<br></br>To claim your
+                  reward, visit the link below* (when the person wins){"  "}
+                  <Link
+                    href="https://www.oneclickstays.com"
+                    className=" underline"
+                  >
+                    {" "}
+                    www.oneclickstays.com
+                  </Link>{" "}
+                  Terms & Conditions apply (at the bottom)
+                </p>
+              </ModalBody>
+              <ModalFooter>
+                <Button
+                  style={{ backgroundColor: "#25C07F" }}
+                  onPress={() => {
+                    window.open("https://www.oneclickstays.com", "_blank");
+                  }}
+                >
+                  Visit OnClickStays
+                </Button>
+              </ModalFooter>
+            </>
           </ModalContent>
         </Modal>
       </>

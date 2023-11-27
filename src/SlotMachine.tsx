@@ -50,7 +50,9 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
   const setWon = useGame((state) => state.setWon);
   const coffeti = useGame((state) => state.coffeti);
   const won = useGame((state) => state.won);
+  const setCoffetiVisible = useGame((state) => state.setCoffetiVisible);
   const dataModal = useGame((state) => state.dataModal);
+  const rewardModal = useGame((state) => state.rewardModal);
   const spinsLeft = useGame((state) => state.spinsLeft);
   // const fetchSegmentValues = async () => {
   //   try {
@@ -83,6 +85,11 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
     ) {
       console.log("WON");
       setWon(true);
+      setCoffetiVisible(true);
+      setTimeout(() => {
+        rewardModal(true);
+        setCoffetiVisible(false);
+      }, 3000);
       coffeti.current.goToAndPlay(0, true);
     }
 
@@ -266,6 +273,9 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         position={[0, buttonY, buttonZ]}
         rotation={[-Math.PI / 8, 0, 0]}
         onClick={() => {
+          if (won) {
+            rewardModal(true);
+          }
           if (phase !== "spinning") {
             if (spins < 5 && spinsLeft > 0) {
               spinSlotMachine();
@@ -307,8 +317,8 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         {phase === "idle"
           ? `${
               spinsLeft == 0
-                ? `${won ? "WON !!" : "Get Spins"}`
-                : `${won ? "WON !!" : "SPIN"}`
+                ? `${won ? "Clame Now" : "Spin Now"}`
+                : `${won ? "Clame Now" : "SPIN"}`
             }`
           : "Spinning"}
       </Text>

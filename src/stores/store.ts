@@ -14,6 +14,12 @@ type State = {
   dataModal: any;
   setDataModal: (value: any) => void;
 
+  rewardModal: any;
+  setRewardModal: (value: any) => void;
+
+  coffetiVisible: boolean;
+  setCoffetiVisible: (value: boolean) => void;
+
   won: boolean;
   setWon: (value: boolean) => void;
   // Endpoint
@@ -97,6 +103,18 @@ const useGame = create<State>((set) => ({
       dataModal: value,
     }));
   },
+
+  /**
+   * Reward model
+   *
+   */
+  rewardModal: {},
+  setRewardModal: (value: any) => {
+    set((state) => ({
+      ...state,
+      rewardModal: value,
+    }));
+  },
   /**
    * spinsLeft
    *
@@ -117,6 +135,17 @@ const useGame = create<State>((set) => ({
     }));
   },
 
+  /**
+   * Coffeti
+   *
+   */
+  coffetiVisible: false,
+  setCoffetiVisible: (value: boolean) => {
+    set((state) => ({
+      ...state,
+      coffetiVisible: value,
+    }));
+  },
   /**
    * Fruits
    *
