@@ -3,7 +3,7 @@
 // https://www.gnu.org/licenses/gpl-3.0.html
 
 import { useRef } from "react";
-// import { OrbitControls } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 // import { Perf } from "r3f-perf";
 import Lights from "./lights/Lights";
 import SlotMachine from "./SlotMachine";
@@ -13,7 +13,6 @@ const Game = () => {
 
   return (
     <>
-      <color args={["#141417"]} attach="background" />
       {/* <Perf position="top-right" /> */}
       {/* <OrbitControls /> */}
       <Lights />

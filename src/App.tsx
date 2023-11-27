@@ -19,7 +19,12 @@ const App = () => {
       <NextUIProvider>
         <Interface />
       </NextUIProvider>
-      <Canvas camera={{ fov: 75, position: [0, 0, cameraPositionZ] }}>
+      <Canvas
+        camera={{ fov: 75, position: [0, 0, cameraPositionZ] }}
+        style={{
+          background: "url(/images/bg.png) no-repeat center center fixed",
+        }}
+      >
         <Game />
       </Canvas>
     </>
