@@ -98,7 +98,7 @@ const Interface = () => {
         href="https://github.com/michaelkolesidis/cherry-charm"
         target="_blank"
       >
-        {/* <img className="logo" src="./images/logo.png" alt="" /> */}
+        <img className="logo" src="./images/logo.svg" alt="" />
       </a>
 
       <div className="interface">
@@ -200,7 +200,7 @@ const Interface = () => {
                 <p>
                   Congratulations, you have won a free ticket to Sunburn Goa
                   2023 when you book with One Click Stays.<br></br>To claim your
-                  reward, visit the link below* (when the person wins){"  "}
+                  reward, visit the link below :-
                   <Link
                     href="https://www.oneclickstays.com"
                     className=" underline"
@@ -208,7 +208,8 @@ const Interface = () => {
                     {" "}
                     www.oneclickstays.com
                   </Link>{" "}
-                  Terms & Conditions apply (at the bottom)
+                  <br></br>
+                  <span className=" text-xs">Terms & Conditions apply </span>
                 </p>
               </ModalBody>
               <ModalFooter>
