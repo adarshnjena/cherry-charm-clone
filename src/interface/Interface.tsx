@@ -181,7 +181,7 @@ const Interface = () => {
                       onClose();
                     }}
                   >
-                    Spins Now !!
+                    Claim Now !!
                   </Button>
                 </ModalFooter>
               </>
