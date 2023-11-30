@@ -104,9 +104,9 @@ const Interface = () => {
       <div className="interface">
         {/* spinsLeft */}
         <div className="spinsLeft-section">
-          <div className="spinsLeft-number mb-2">
+          <div className="spinsLeft-number mb-2 md:mb-0">
             {spinsLeft}
-            <span className="absolute bottom-0 right-0 text-sm">
+            <span className="absolute bottom-0 right-0 text-sm font-extralight">
               Spins Left
             </span>
           </div>
@@ -114,7 +114,7 @@ const Interface = () => {
 
         {/* Spins */}
         <div className="spins-section">
-          <div className="spins-number mb-2">
+          <div className="spins-number mb-2 md:mb-0">
             {" "}
             {spins}
             <span className="absolute bottom-0 left-0 text-sm">Spins Used</span>
@@ -147,7 +147,7 @@ const Interface = () => {
                   Spin & Win you FREE Sunburn Goa 2023 Ticket{" "}
                 </ModalHeader>
                 <ModalBody>
-                  <p >
+                  <p>
                     To spin the slot machine and get a FREE Sunburn 2023 ticket,
                     please fill out the form below with your name and contact
                     number. This will allow us to keep you updated on exciting
@@ -220,7 +220,7 @@ const Interface = () => {
                     window.open("https://www.oneclickstays.com", "_blank");
                   }}
                 >
-                  Visit OnClickStays
+                  Visit OneClickStays
                 </Button>
               </ModalFooter>
             </>

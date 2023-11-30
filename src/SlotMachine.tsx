@@ -245,9 +245,9 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         ref={reelRefs[0]}
         value={value[0]}
         map={0}
-        position={[-7, 0, 0]}
+        position={[-8, 0, 0]}
         rotation={[0, 0, 0]}
-        scale={[10, 10, 10]}
+        scale={[12, 10, 10]}
         reelSegment={0}
       />
       <Reel
@@ -256,16 +256,16 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         map={1}
         position={[0, 0, 0]}
         rotation={[0, 0, 0]}
-        scale={[10, 10, 10]}
+        scale={[12, 10, 10]}
         reelSegment={0}
       />
       <Reel
         ref={reelRefs[2]}
         value={value[2]}
         map={2}
-        position={[7, 0, 0]}
+        position={[8, 0, 0]}
         rotation={[0, 0, 0]}
-        scale={[10, 10, 10]}
+        scale={[12, 10, 10]}
         reelSegment={0}
       />
       <Button
@@ -317,8 +317,8 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
         {phase === "idle"
           ? `${
               spinsLeft == 0
-                ? `${won ? "Clame Now" : "Spin Now"}`
-                : `${won ? "Clame Now" : "SPIN"}`
+                ? `${won ? "Claim Now" : "Spin Now"}`
+                : `${won ? "Claim Now" : "SPIN"}`
             }`
           : "Spinning"}
       </Text>
