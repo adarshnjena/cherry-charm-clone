@@ -213,6 +213,7 @@ const Interface = () => {
               <ModalFooter>
                 <Button
                   style={{ backgroundColor: "#25C07F" }}
+                  className="w-full"
                   onPress={() => {
                     window.open("https://www.oneclickstays.com", "_blank");
                   }}
