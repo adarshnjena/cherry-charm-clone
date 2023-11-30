@@ -276,7 +276,7 @@ const SlotMachine = forwardRef(({ value }: SlotMachineProps, ref) => {
           if (won) {
             rewardModal(true);
           }
-          if (phase !== "spinning") {
+          if (phase !== "spinning" && !won) {
             if (spins < 5 && spinsLeft > 0) {
               spinSlotMachine();
               addSpin();
