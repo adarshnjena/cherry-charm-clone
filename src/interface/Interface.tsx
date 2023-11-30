@@ -94,7 +94,7 @@ const Interface = () => {
       {modal && <CustomModal />}
 
       {/* Logo */}
-      <a href="https://https://www.thedrinkfree.com/" target="_blank">
+      <a href="https://www.thedrinkfree.com/" target="_blank">
         <img className="logo" src="./images/logo.svg" alt="" />
       </a>
 
