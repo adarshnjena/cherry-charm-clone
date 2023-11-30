@@ -13,14 +13,14 @@ const CustomModal = () => {
       <div className="modal-box" onClick={(e) => e.stopPropagation()}>
         <div className="modal-main">
           <div className="modal-text">
-            Click on the SPIN button or press SPACE to spin.
+            {" "}
+            Spin & Win you FREE Sunburn Goa 2023 Ticket
           </div>
-          <div className="modal-text">
-            <img className="modal-image" src="./images/cherry.png" />
-            <img className="modal-image" src="./images/cherry.png" />
-            <img className="modal-image" src="./images/cherry.png" />
-            <span> Pay 50 </span>
-            <img className="modal-image" src="./images/coin.png" />
+          <div className="modal-text text-justify">
+            To spin the slot machine and get a FREE Sunburn 2023 ticket, please
+            fill out the form below with your name and contact number. This will
+            allow us to keep you updated on exciting offers and
+            events in the future.
           </div>
         </div>
       </div>

@@ -144,13 +144,14 @@ const Interface = () => {
             {(onClose) => (
               <>
                 <ModalHeader className="flex flex-col gap-1">
-                  Modal Title
+                  Spin & Win you FREE Sunburn Goa 2023 Ticket{" "}
                 </ModalHeader>
                 <ModalBody>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nullam pulvinar risus non risus hendrerit venenatis.
-                    Pellentesque sit amet hendrerit risus, sed porttitor quam.
+                  <p >
+                    To spin the slot machine and get a FREE Sunburn 2023 ticket,
+                    please fill out the form below with your name and contact
+                    number. This will allow us to keep you updated on exciting
+                    offers and events in the future.
                   </p>
                   <Input
                     isRequired
@@ -181,7 +182,7 @@ const Interface = () => {
                       onClose();
                     }}
                   >
-                    Claim Now !!
+                    Submit
                   </Button>
                 </ModalFooter>
               </>
