@@ -52,7 +52,7 @@ const Interface = () => {
       name,
       phone,
     };
-    const response = await axios.post("https://formspree.io/f/xrgwwplr", data);
+    const response = await axios.post("https://formspree.io/f/mnqkkear", data);
     console.log(response);
     if (response.status === 200) {
       updateSpinsLeft(5);
